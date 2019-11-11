@@ -3,7 +3,7 @@ var config = {
     accessToken:  'pk.eyJ1Ijoid2VpbWluZ3BzdSIsImEiOiJjam5sdTNuMWIwYjFuM3FueGdhaGlpaTlsIn0.Z1kqBlmMmpb3vwteZ8lNTA',
     showMarkers: false,
     theme: 'light',
-    alignment: 'left',
+    alignment: 'center',
     title: 'Optimal Locations in Weather Predictions',
     subtitle: 'Using a Genetic Algorithm for Optimal Location Finding in Weather Predictions',
     byline: 'Weiming Hu',
@@ -13,7 +13,7 @@ var config = {
             id: 'slide-terrain',
             title: 'Model Simulation for Complex Terrains',
             image: 'images/resolutions.png',
-            description: 'Numerical models usually use a regular mesh grid to represent the complex terrain. The follow digram shows a comparison between mesh grids with different spatial resolution. Higher resolution corresponds to smaller grid cells, and higher details in the model.',
+            description: 'Numerical models usually use a regular mesh grid to represent complex terrains. The follow digram shows a comparison between mesh grids with different spatial resolution. Higher resolution corresponds to smaller grid cells, and higher details in the model.',
             location: {
                 center: [-115.86573, 50.26637],
                 zoom: 2.54,
@@ -36,7 +36,7 @@ var config = {
         {
             id: 'slide-resolutions',
             title: 'North American Mesoscale Weather Forecast System',
-            description: '',
+            description: 'While higher resolution usually contributes to more accurate results, the computation requirement grows drastically. For example, North American Mesoscale (NAM) is a high resolution weather model with 12 km spatial resolution. To cover the entire continental US, it incorporates more than 200,000 grid cells.',
             location: {
                 center: [-115.80038, 38.97474],
                 zoom: 4.93,
@@ -52,6 +52,37 @@ var config = {
             onChapterExit: [
                 {
                     layer: 'CONUS-tmax-August',
+                    opacity: 0
+                }
+            ]
+        },
+        {
+            id: 'slide-question',
+            title: 'Research Question',
+            description: 'Therefore, our question is how to identify an optimized set of locations for an unstructured grid which can be used to guide weather predictions. This unstructured grid, although having lower spatial resolution than the regular grid mesh, is expected to produce forecasts with similar accuracy.',
+            location: {
+                center: [-98.26468, 39.29738],
+                zoom: 4.88,
+                pitch: 3.50,
+                bearing: 0.00
+            },
+            onChapterEnter: [
+                {
+                    layer: 'CONUS-tmax-August',
+                    opacity: 0.5
+                },
+                {
+                    layer: 'NAM-random',
+                    opacity: 1
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'CONUS-tmax-August',
+                    opacity: 0
+                },
+                {
+                    layer: 'NAM-random',
                     opacity: 0
                 }
             ]
@@ -209,7 +240,7 @@ var config = {
         {
             id: 'Thankyou',
             title: 'Thank You',
-            description: 'Weiming Hu https://weiming-hu.github.io/ </br> GEOLab http://geoinf.psu.edu/',
+            description: 'Weiming Hu <a href="https://weiming-hu.github.io/">https://weiming-hu.github.io/</a> </br> GEOLab <a href="http://geoinf.psu.edu/">http://geoinf.psu.edu/</a>',
             location: {
                 center: [-115.86573, 50.26637],
                 zoom: 2.54,
