@@ -253,7 +253,7 @@ var config = {
         {
             id: 'Thankyou',
             title: 'Thank You',
-            description: 'Weiming Hu <a href="https://weiming-hu.github.io/">https://weiming-hu.github.io/</a> </br> GEOLab <a href="http://geoinf.psu.edu/">http://geoinf.psu.edu/</a>',
+            description: 'Link to paper <a href="https://www.sciencedirect.com/science/article/pii/S0098300418306678">Computers & Geosciences</a> </br> Weiming Hu <a href="https://weiming-hu.github.io/">https://weiming-hu.github.io/</a> </br> GEOLab <a href="http://geoinf.psu.edu/">http://geoinf.psu.edu/</a>',
             location: {
                 center: [-115.86573, 50.26637],
                 zoom: 2.54,
