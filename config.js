@@ -13,7 +13,7 @@ var config = {
             id: 'slide-terrain',
             title: 'Model Simulation for Complex Terrains',
             image: 'images/resolutions.png',
-            description: 'Numerical models usually use a regular mesh grid to represent complex terrains. The follow digram shows a comparison between mesh grids with different spatial resolution. Higher resolution corresponds to smaller grid cells, and higher details in the model.',
+            description: 'Numerical models usually use a regular mesh grid to discretize complex terrains. The above diagram shows a comparison between the grids used by models with different spatial resolutions. Higher resolutions correspond to smaller grid cells and more details in the model.',
             location: {
                 center: [-115.86573, 50.26637],
                 zoom: 2.54,
@@ -36,7 +36,7 @@ var config = {
         {
             id: 'slide-resolutions',
             title: 'North American Mesoscale Weather Forecast System',
-            description: 'While higher resolution usually contributes to more accurate results, the computation requirement grows drastically. For example, North American Mesoscale (NAM) is a high resolution weather model with 12 km spatial resolution. To cover the entire continental US, it incorporates more than 200,000 grid cells.',
+            description: 'While higher resolution usually contributes to more accurate results, the computation requirement grows drastically. For example, As shown here is the maximum temperature for August 2019 generated from North American Mesoscale (NAM) forecast system. NAM is a high-resolution weather model with12 km spatial resolution. To cover the entire continental US, it incorporates more than 200,000 grid cells.',
             location: {
                 center: [-115.80038, 38.97474],
                 zoom: 4.93,
@@ -59,7 +59,7 @@ var config = {
         {
             id: 'slide-question',
             title: 'Research Question',
-            description: 'Therefore, our question is how to identify an optimized set of locations for an unstructured grid which can be used to guide weather predictions. This unstructured grid, although having lower spatial resolution than the regular grid mesh, is expected to produce forecasts with similar accuracy.',
+            description: 'Therefore, my research focuses on <b>location-based optimization for weather models</b>. Reducing the number of grid cells could save computation, but it also leads to reduced overall accuracy. The question is <b> how to identify a limited set of locations for weather predictions that both save computation and ensure the overall prediction accuracy </b>.',
             location: {
                 center: [-98.26468, 39.29738],
                 zoom: 4.88,
@@ -91,7 +91,20 @@ var config = {
             id: 'slide-GA-1',
             title: 'Genetic Algorithm and Weather Forecasts',
             image: 'images/GA.gif',
-            description: 'We can use a Genetic Algorithm to optimize the locations for weather predictions. Weather forecasts for these specific locations will be generated.',
+            description: 'To find this optimized set of locations, we rely on a powerful optimization algorithm, Genetic Algorithm (GA). The animation shows how GA typically works. The algorithm relies on a population of possible solutions (shown as black dots) and a predefined objective (e.g. to find the lowest point on a complex terrain). Through competition and exploration, the population gradually converges to the global minimum of the terrain.',
+            location: {
+                center: [-80.10210, 35.66005],
+                zoom: 5.21,
+                pitch: 3.50,
+                bearing: 0
+            },
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'slide-GA-2',
+            title: 'Study Area',
+            description: 'The study region is an area from the east coast with <b>4,424</b> grid cells. We aim to secure <b>100</b> key locations and then generate predictions for these locations using <a href="https://weiming-hu.github.io/AnalogsEnsemble/">Analog Ensemble</a>. Predictions for the rest of the area will be derived from these 100 locations.',
             location: {
                 center: [-80.10210, 35.66005],
                 zoom: 5.21,
@@ -120,10 +133,10 @@ var config = {
             ]
         },
         {
-            id: 'slide-GA-2',
+            id: 'slide-GA-3',
             title: 'Genetic Algorithm and Weather Forecasts (Cont.)',
             image: 'images/GA-crossover.jpeg',
-            description: 'Genetic Algorithm optimizes locations for weather forecasts.',
+            description: 'The left figure shows the optimized locations identified by GA after 500 iterations. The right figure shows the fitness evolution of the population. The solution is considered to be found when the population converges.',
             location: {
                 center: [-80.10210, 35.66005],
                 zoom: 5.21,
@@ -152,10 +165,10 @@ var config = {
             ]
         },
         {
-            id: 'slide-GA-3',
+            id: 'slide-GA-4',
             title: 'Genetic Algorithm and Weather Forecasts (Cont.)',
             image: 'images/model-comparison.jpeg',
-            description: 'GA generated solution is as accurate to the high resolution model.',
+            description: 'The left figure compares the global errors among predictions generated from <b style="color:#cc0000;">100 randomly picked locations</b>, <b style="color:#0066ff;">100 GA identified locations</b>, <b style="color:#33cc33;">4,424 locations from Analog Ensemble</b>, and <b style="color:#990099;">4,424 locations from NAM</b>. The right figure shows how far are <b style="color:#cc0000;">random selection</b> and <b style="color:#0066ff;">GA selection</b> away from the theretical optimum.',
             location: {
                 center: [-80.10210, 35.66005],
                 zoom: 5.21,
@@ -185,8 +198,8 @@ var config = {
         },
         {
             id: 'application-1',
-            title: 'Summary and Impact',
-            description: 'The unstructured grid can be optimized based on multiple objective functions, not limited to weather variables only, but also on demographic dataset, for example, traffic routes.',
+            title: 'Impact',
+            description: 'These results show that we can use far fewer points to approximate a higher resolution forecast. The semi-transparent background shows the constructed unstructured grid from the optimized locations. These locations have many implications, e.g. for how to deploy minimal weather sensors in a region to achieve the highest overall observational accuracy.',
             location: {
                 center: [-77.56573, 38.21628],
                 zoom: 7.68,
@@ -209,7 +222,7 @@ var config = {
         {
             id: 'application-2',
             title: 'Summary and Impact (Cont.)',
-            description: 'The unstructured grid can be optimized based on multiple objective functions, not limited to weather variables only, but also on demographic dataset, for example, traffic routes.',
+            description: 'Currently, the locations are identified purely based on weather prediction accuracy, but it is not limited. By adding a traffic route layer, we can add rules to GA to make it prefer locations that are closer to traffic.',
             location: {
                 center: [-77.04684, 38.89452],
                 zoom: 9.33,
@@ -223,7 +236,7 @@ var config = {
                 },
                 {
                     layer: 'DOUG-CONUS',
-                    opacity: 0.8
+                    opacity: 0.5
                 }
             ],
             onChapterExit: [
