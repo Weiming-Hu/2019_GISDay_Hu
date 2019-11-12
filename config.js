@@ -104,7 +104,7 @@ var config = {
         {
             id: 'slide-GA-2',
             title: 'Study Area',
-            description: 'The study region is an area from the east coast with <b>4,424</b> grid cells. We aim to secure <b>100</b> key locations and then generate predictions for these locations using <a href="https://weiming-hu.github.io/AnalogsEnsemble/">Analog Ensemble</a>. Predictions for the rest of the area will be derived from these 100 locations.',
+            description: 'The study region is an area from the east coast with <b>4,424</b> grid cells. We will select <b>100</b> locations and then generate predictions for these locations using <a href="https://weiming-hu.github.io/AnalogsEnsemble/">Analog Ensemble</a>. Predictions for the rest of the area will be derived from these 100 locations.',
             location: {
                 center: [-80.10210, 35.66005],
                 zoom: 5.21,
